@@ -672,7 +672,6 @@
             <li><a href="#videos">Vidéos</a></li>
             <li><a href="#programme">Programme</a></li>
             <li><a href="#inscription">Inscription</a></li>
-            <li><a href="#" onclick="showAdminModal(); return false;" style="color: var(--primary); font-weight: 700;">🔧 Admin</a></li>
             <li id="nav-auth">
                 <button class="admin-btn" onclick="showLoginModal()">Connexion</button>
             </li>
@@ -754,7 +753,7 @@
 
     <footer>
         <p>&copy; 2026 CodeDébut - Formation de développement web pour débutants</p>
-        <p>Contact : contact@codedebut.fr</p>
+        <p>Contact : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2e4d41405a4f4d5a6e4d414a4b4a4b4c5b5a00485c">[email&#160;protected]</a></p>
     </footer>
 
     <!-- Modal Inscription -->
@@ -1016,7 +1015,7 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // ========================================
         // CONFIGURATION FIREBASE
         // ========================================
@@ -1090,6 +1089,7 @@
                 navAuth.innerHTML = `
                     <div class="user-info">
                         <span class="user-email">${currentUser.email}</span>
+                        <button class="admin-btn" onclick="showAdminModal()">Admin</button>
                         <button class="logout-btn" onclick="logout()">Déconnexion</button>
                     </div>
                 `;
@@ -1481,7 +1481,7 @@
                 loadAdminVideos();
             } catch (error) {
                 console.error('Erreur publication vidéo:', error);
-                alert('Erreur lors de la publication');
+                alert('Erreur lors de la publication: ' + error.message);
             }
         });
 
@@ -1557,15 +1557,4 @@
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
-                    });
-                }
-            });
-        });
-
-        // ========================================
-        // INITIALISATION
-        // ========================================
-        loadVideos();
-    </script>
-</body>
-</html>
+                    })
