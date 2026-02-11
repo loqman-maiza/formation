@@ -1564,14 +1564,14 @@
         // EMAILS (SIMULATION - À REMPLACER)
         // ========================================
         async function sendVerificationEmail(email, code) {
-            console.log('📧 EMAIL DE VALIDATION');
+            console.log('EMAIL DE VALIDATION');
             console.log('À:', email);
             console.log('Code:', code);
             // TODO: Intégrer SendGrid ici
         }
 
         async function sendPaymentConfirmationEmail(email) {
-            console.log('📧 EMAIL CONFIRMATION PAIEMENT');
+            console.log('EMAIL CONFIRMATION PAIEMENT');
             console.log('À:', email);
             // TODO: Intégrer SendGrid ici
         }
@@ -1587,4 +1587,15 @@
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
-                    })
+                    });
+                }
+            });
+        });
+
+        // ========================================
+        // INITIALISATION
+        // ========================================
+        loadVideos();
+    </script>
+</body>
+</html>
