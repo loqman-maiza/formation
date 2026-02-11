@@ -8,11 +8,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     
+    <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
     
+    <!-- Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
     
     <style>
@@ -114,6 +116,7 @@
             font-weight: 600;
         }
 
+        /* Hero Section */
         .hero {
             margin-top: 80px;
             min-height: 90vh;
@@ -218,6 +221,7 @@
             box-shadow: 0 15px 40px rgba(255,107,53,0.4);
         }
 
+        /* Videos Section */
         .videos-section {
             padding: 6rem 5%;
             background: white;
@@ -417,6 +421,7 @@
             color: var(--secondary);
         }
 
+        /* Form Styles */
         .form-group {
             margin-bottom: 1.5rem;
         }
@@ -564,9 +569,10 @@
         }
 
         .secure-badge::before {
-            content: '🔒 ';
+            content: '';
         }
 
+        /* Admin Panel */
         .video-type-selector {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -634,6 +640,7 @@
             text-align: center;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -680,8 +687,9 @@
         </div>
     </section>
 
+    <!-- Section Vidéos -->
     <section id="videos" class="videos-section">
-        <h2 class="section-title">📹 Cours en Vidéo</h2>
+        <h2 class="section-title">Cours en Vidéo</h2>
         <div id="videos-grid" class="videos-grid">
             <div class="loading">Chargement des vidéos...</div>
         </div>
@@ -691,7 +699,6 @@
         <h2 class="section-title">Ce que tu vas apprendre</h2>
         <div class="modules-grid">
             <div class="module-card">
-                <div class="module-icon">🎨</div>
                 <h3>Module 1 : HTML & CSS</h3>
                 <ul>
                     <li>Structure d'une page web</li>
@@ -702,7 +709,6 @@
             </div>
 
             <div class="module-card">
-                <div class="module-icon">⚡</div>
                 <h3>Module 2 : JavaScript</h3>
                 <ul>
                     <li>Bases de la programmation</li>
@@ -713,7 +719,6 @@
             </div>
 
             <div class="module-card">
-                <div class="module-icon">🚀</div>
                 <h3>Module 3 : Projets Réels</h3>
                 <ul>
                     <li>Portfolio personnel</li>
@@ -724,7 +729,6 @@
             </div>
 
             <div class="module-card">
-                <div class="module-icon">💼</div>
                 <h3>Bonus : Carrière</h3>
                 <ul>
                     <li>CV de développeur</li>
@@ -747,7 +751,8 @@
         <p>&copy; 2026 CodeDébut - Formation de développement web pour débutants</p>
         <p>Contact : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2e4d41405a4f4d5a6e4d414a4b4a4b4c5b5a00485c">[email&#160;protected]</a></p>
     </footer>
-    
+
+    <!-- Modal Inscription -->
     <div id="register-modal" class="modal">
         <div class="modal-content">
             <button class="close-modal" onclick="closeRegisterModal()">×</button>
@@ -835,13 +840,14 @@
         </div>
     </div>
 
+    <!-- Modal Code de Validation -->
     <div id="validation-modal" class="modal">
         <div class="modal-content">
             <button class="close-modal" onclick="closeValidationModal()">×</button>
             <h2 class="modal-title">Validation Email</h2>
             
             <div class="info-alert">
-                📧 Un code de validation à 6 chiffres a été envoyé à votre email.
+                Un code de validation à 6 chiffres a été envoyé à votre email.
             </div>
 
             <div id="validation-success" class="success-alert">
@@ -866,6 +872,7 @@
         </div>
     </div>
 
+    <!-- Modal Paiement -->
     <div id="payment-modal" class="modal">
         <div class="modal-content">
             <button class="close-modal" onclick="closePaymentModal()">×</button>
@@ -903,7 +910,7 @@
                 </div>
 
                 <button type="submit" class="submit-btn" id="payment-btn">
-                    💳 Payer 50€
+                    Payer 50€
                 </button>
 
                 <div class="secure-badge">
@@ -918,6 +925,7 @@
         </div>
     </div>
 
+    <!-- Modal Connexion -->
     <div id="login-modal" class="modal">
         <div class="modal-content">
             <button class="close-modal" onclick="closeLoginModal()">×</button>
@@ -947,6 +955,7 @@
         </div>
     </div>
 
+    <!-- Modal Admin -->
     <div id="admin-modal" class="modal">
         <div class="modal-content" style="max-width: 800px;">
             <button class="close-modal" onclick="closeAdminModal()">×</button>
@@ -959,10 +968,10 @@
             <form id="video-form">
                 <div class="video-type-selector">
                     <div class="type-option active" onclick="selectVideoType('youtube')">
-                        🎬 YouTube
+                        YouTube
                     </div>
                     <div class="type-option" onclick="selectVideoType('url')">
-                        🔗 URL Vidéo
+                        URL Vidéo
                     </div>
                 </div>
 
@@ -990,7 +999,7 @@
                     <textarea id="video-description" required placeholder="Décrivez le contenu de cette vidéo..."></textarea>
                 </div>
 
-                <button type="submit" class="submit-btn">📤 Publier la vidéo</button>
+                <button type="submit" class="submit-btn">Publier la vidéo</button>
             </form>
 
             <div class="video-list">
@@ -1096,6 +1105,12 @@
                 const userDoc = await db.collection('users').doc(currentUser.uid).get();
                 if (userDoc.exists && userDoc.data().hasPaid) {
                     console.log('Utilisateur a payé - accès complet');
+                    // Recharger les vidéos pour afficher le contenu payant
+                    loadVideos();
+                } else {
+                    console.log('Utilisateur n\'a pas encore payé');
+                    // Afficher le message de paiement requis
+                    loadVideos();
                 }
             } catch (error) {
                 console.error('Erreur vérification paiement:', error);
@@ -1366,11 +1381,39 @@
         // ========================================
         async function loadVideos() {
             try {
+                const videosGrid = document.getElementById('videos-grid');
+                
+                // Vérifier si l'utilisateur est connecté ET a payé
+                if (!currentUser) {
+                    videosGrid.innerHTML = `
+                        <div class="no-videos">
+                            <h3 style="color: var(--secondary); margin-bottom: 1rem;">Accès réservé aux membres</h3>
+                            <p style="margin-bottom: 1.5rem;">Pour accéder aux cours en vidéo, vous devez être inscrit et avoir effectué le paiement.</p>
+                            <button class="cta-button" onclick="showRegisterModal()">S'inscrire maintenant - 50€</button>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Vérifier si l'utilisateur a payé
+                const userDoc = await db.collection('users').doc(currentUser.uid).get();
+                const userData = userDoc.data();
+                
+                if (!userData || !userData.hasPaid) {
+                    videosGrid.innerHTML = `
+                        <div class="no-videos">
+                            <h3 style="color: var(--secondary); margin-bottom: 1rem;">Paiement requis</h3>
+                            <p style="margin-bottom: 1.5rem;">Vous êtes connecté, mais vous devez effectuer le paiement pour accéder aux vidéos de formation.</p>
+                            <button class="cta-button" onclick="showPaymentModal()">Payer maintenant - 50€</button>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // L'utilisateur a payé, charger les vidéos
                 const videosSnapshot = await db.collection('videos')
                     .orderBy('createdAt', 'desc')
                     .get();
-                
-                const videosGrid = document.getElementById('videos-grid');
                 
                 if (videosSnapshot.empty) {
                     videosGrid.innerHTML = '<div class="no-videos">Aucune vidéo publiée pour le moment. Revenez bientôt !</div>';
@@ -1545,15 +1588,3 @@
                         behavior: 'smooth',
                         block: 'start'
                     })
-                                    }
-            });
-        });
-
-        // ========================================
-        // INITIALISATION
-        // ========================================
-        loadVideos();
-    </script>
-</body>
-</html>
-
